@@ -3,6 +3,8 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const adminRoute = require('./routes/admin')
 const shopRoute = require('./routes/shop')
+const successRoute = require('./routes/success')
+const contactRoute = require('./routes/contact')
 
 
 
@@ -13,6 +15,8 @@ app.use(express.static(path.join(__dirname,'public')))
 
 app.use('/admin',adminRoute)
 app.use(shopRoute)
+app.use(successRoute)
+app.use(contactRoute)
 
 app.use((req,res,next) => {
     res.status(404).sendFile(path.join(__dirname,'views','404.html'))
